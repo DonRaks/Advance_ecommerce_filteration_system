@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@sidebar {
+  @apply bg-gray-800 text-white w-64 h-screen p-4;
+}
