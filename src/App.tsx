@@ -17,7 +17,7 @@ const App = () => {
         <Header onToggleMobileFilter={() => setMobileFilterOpen(true)} />
 
         {/* Main Body Container */}
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
+        <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
             {/* Filter Sidebar (Desktop + Mobile Drawer) */}
             <Sidebar
@@ -42,7 +42,7 @@ const App = () => {
               </div>
 
               {/* Right Side Widgets (Top Sellers & Popular Blogs) */}
-              <aside className="w-full xl:w-80 shrink-0 space-y-6">
+              <aside className="w-full xl:w-80 shrink-0 space-y-6 sticky top-20 self-start">
                 <TopSellers />
                 <PopularBlogs />
               </aside>

@@ -309,14 +309,14 @@ const MainContent: React.FC<MainContentProps> = ({ onOpenMobileFilter }) => {
 
       {/* Products Grid with GSAP animations */}
       {loading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {Array.from({ length: 8 }).map((_, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 min-[1400px]:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl border border-slate-200/80 p-4 animate-pulse h-72 flex flex-col justify-between"
+              className="bg-white rounded-2xl border border-slate-200/80 p-5 animate-pulse h-80 flex flex-col justify-between"
             >
-              <div className="bg-slate-100 rounded-xl h-40 w-full mb-3" />
-              <div className="bg-slate-100 rounded h-4 w-3/4 mb-2" />
+              <div className="bg-slate-100 rounded-xl h-44 w-full mb-4" />
+              <div className="bg-slate-100 rounded h-5 w-3/4 mb-2" />
               <div className="bg-slate-100 rounded h-4 w-1/2" />
             </div>
           ))}
@@ -324,7 +324,7 @@ const MainContent: React.FC<MainContentProps> = ({ onOpenMobileFilter }) => {
       ) : filteredProducts.length > 0 ? (
         <div
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 min-[1400px]:grid-cols-3 gap-6"
         >
           {filteredProducts.map((product) => (
             <BookCard

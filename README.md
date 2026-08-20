@@ -26,6 +26,11 @@ Featuring real-time multi-criteria product filtering, sorting algorithms, respon
   - Custom price range inputs (Min / Max bounds).
   - Popular tag chip filtering (`#apple`, `#fashion`, `#shoes`, etc.).
   - One-click active filter chip removal & reset button.
+- 📐 **Optimized Layout & Responsive Grid System**:
+  - Expanded `1600px` max-width layout container allowing comfortable multi-column product display.
+  - Proportional grid breakpoints ensuring product cards maintain optimal width (~280px–340px) without squeezing.
+  - Unclipped, shrink-resistant action buttons (`View Details` CTA) and clean price formatting across all viewports.
+  - Sticky left filter sidebar and right merchant widgets (`top-20` scroll alignment).
 - 📊 **Dynamic Sorting**:
   - Default order.
   - Price: Low to High / High to Low.
