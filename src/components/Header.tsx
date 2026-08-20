@@ -67,10 +67,10 @@ const Header: React.FC<HeaderProps> = ({ onToggleMobileFilter }) => {
               </div>
               <div className="flex flex-col">
                 <span className="font-extrabold text-lg tracking-tight text-slate-900 leading-tight">
-                  REACT<span className="text-indigo-600">STORE</span>
+                  NOVA<span className="text-indigo-600">MART</span>
                 </span>
-                <span className="text-[10px] font-medium text-slate-400 -mt-0.5 tracking-wider uppercase">
-                  Classic Collection
+                <span className="text-[10px] font-bold text-indigo-500 -mt-0.5 tracking-wider uppercase">
+                  Next-Gen Collection
                 </span>
               </div>
             </Link>

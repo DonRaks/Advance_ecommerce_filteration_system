@@ -54,7 +54,7 @@ const App = () => {
         <footer className="bg-white border-t border-slate-200/80 mt-12 py-8">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p className="text-xs text-slate-400 font-medium">
-              © {new Date().getFullYear()} ReactStore Inc. All rights reserved. Powered by Tailwind CSS & React.
+              © {new Date().getFullYear()} NovaMart Inc. All rights reserved. Powered by Tailwind CSS & React.
             </p>
           </div>
         </footer>

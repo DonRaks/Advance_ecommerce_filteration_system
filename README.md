@@ -1,4 +1,4 @@
-# 🚀 Advanced E-Commerce Catalog & Filtration System
+# 🛍️ NovaMart — Next-Gen E-Commerce Experience
 
 [![React 19](https://img.shields.io/badge/React-19.0-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
