@@ -1,165 +1,141 @@
-# 🌟 Advanced E-Commerce Filtration System
+# 🚀 Advanced E-Commerce Catalog & Filtration System
 
-A high-performance, modern, and highly responsive E-Commerce user interface built using **React 19**, **Vite 8**, **TypeScript**, and **Tailwind CSS v4**. This project showcases advanced search, filtering, client-side sorting, and pagination logic interacting with external REST APIs.
+[![React 19](https://img.shields.io/badge/React-19.0-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![GSAP](https://img.shields.io/badge/GSAP-3.12-88CE02?logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
----
+A state-of-the-art, high-performance E-Commerce web application built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, and **GSAP (GreenSock Animation Platform)**. 
 
-## 📖 Table of Contents
-
-- [Key Features](#-key-features)
-- [Tech Stack](#-tech-stack)
-- [Project Directory Structure](#-project-directory-structure)
-- [Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running Locally](#running-locally)
-  - [Building for Production](#building-for-production)
-- [Architecture & State Management](#-architecture--state-management)
-- [Component Documentation](#-component-documentation)
-- [Roadmap & Enhancements](#-roadmap--enhancements)
+Featuring real-time multi-criteria product filtering, sorting algorithms, responsive mobile slide-over drawers, smooth grid stagger animations, and detailed product page views.
 
 ---
 
-##  Key Features
+## ✨ Features
 
-*   **🔍 Centralized Filter State (`FilterContext`)**: Manages search query, selected category, price range (`minPrice`/`maxPrice`), and search keywords globally using React Context API.
-*   **⚡ Real-Time Sidebar Controls (`Sidebar`)**:
-    *   **Text Search**: Instant search typing filter.
-    *   **Dynamic Categories**: Automatically fetches active categories from the backend API on load, presenting them as radio options.
-    *   **Numeric Price Boundaries**: Min/Max price inputs to restrict viewable item price ranges.
-    *   **Quick Keywords**: Instant tag search buttons (e.g. Apple, Watch, Fashion, Trend, Shoes, Shirt).
-    *   **One-Click Reset**: Restores all filters to default state instantly.
-*   **📊 Grid Display & Operations (`MainContent`)**:
-    *   **Paginated Loading**: Connects to the dummyjson API with offset-based pagination.
-    *   **Client-Side Sorting**: Quick sort by **Cheap** (price ascending), **Expensive** (price descending), and **Popular** (rating descending).
-    *   **Smart Pagination**: Renders page numbers dynamically, showing windowed navigation buttons (current page +/- 2) for clean UX.
-*   **👤 Integrated Widgets**:
-    *   **Top Sellers**: Fetches random users from `randomuser.me` as sellers with functional Follow/Unfollow UI state toggling.
-    *   **Popular Blogs**: Engaging simulated social blog section with mock likes/comments counters and Lucide icons.
-*   **📱 Modern Responsive Layout**: Styled with Tailwind CSS v4 to look gorgeous across small, medium, and large devices.
-
----
-
-## Tech Stack
-
-*   **Core**: [React 19](https://react.dev/) & [TypeScript](https://www.typescriptlang.org/)
-*   **Bundler**: [Vite 8](https://vite.dev/)
-*   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (using the new Vite plugin compiler `@tailwindcss/vite` & React compiler)
-*   **Compiler Optimization**: [Babel React Compiler](https://react.dev/learn/react-compiler) (`@rolldown/plugin-babel`)
-*   **Networking**: [Axios](https://axios-http.com/)
-*   **Icons**: [Lucide React](https://lucide.dev/)
-*   **Routing**: [React Router Dom v7](https://reactrouter.com/)
+- 🎨 **Modern Aesthetics & Glassmorphism**: Tailored indigo/slate color palette, fluid typography, glassmorphism banners, and dynamic UI elements.
+- ⚡ **GSAP Animations**:
+  - **Hero Banner**: Intro timeline reveal and infinite floating card loop (`sine.easeInOut`).
+  - **Catalog Grid**: Staggered product entrance (`stagger: 0.06s`) on fetch, filter, and pagination changes.
+  - **Micro-Interactions**: Hover scale zooms, button elastic bounces, and cart badge pulses.
+  - **Product Detail Gallery**: Image cross-fade scale transitions and smooth slide-in layouts.
+- 🔍 **Advanced Multi-Criteria Filtration System**:
+  - Search query filtering across titles and categories.
+  - Category radio selection with instant active filter count.
+  - Custom price range inputs (Min / Max bounds).
+  - Popular tag chip filtering (`#apple`, `#fashion`, `#shoes`, etc.).
+  - One-click active filter chip removal & reset button.
+- 📊 **Dynamic Sorting**:
+  - Default order.
+  - Price: Low to High / High to Low.
+  - Highest Rated items.
+- 📱 **Fully Responsive Layout**:
+  - Desktop sticky sidebar.
+  - Mobile slide-over off-canvas drawer with backdrop blur.
+- 🛒 **Interactive Product Detail View**:
+  - Image gallery thumbnail switcher.
+  - Quantity counter selector.
+  - Simulated cart feedback CTA button.
+  - Verified seller badge & trust guarantee badges.
 
 ---
 
-## 📂 Project Directory Structure
+## 🛠️ Technology Stack
 
-```bash
-├── eslint.config.js       # ESLint rules and linter setup
-├── index.html             # HTML shell/entry point
-├── index.ts               # Local TS sandbox/notes file
-├── package.json           # Scripts, dependencies, and configuration
-├── src/
-│   ├── App.tsx            # Main Application Shell & Route definitions
-│   ├── index.css          # Tailwind CSS v4 styling entrypoint
-│   ├── main.tsx           # React mounting / application bootstrapping
-│   └── components/
-│       ├── BookCard.tsx      # Individual product card component
-│       ├── FilterContext.tsx # Global state provider for search filters
-│       ├── MainContent.tsx   # Product grid, sorting, pagination, and API fetching
-│       ├── PopularBlogs.tsx  # Blog side-panel widget
-│       ├── ProductPage.tsx   # Detailed individual product display page
-│       ├── Sidebar.tsx       # Search inputs, categories, price range, and tags
-│       └── TopSellers.tsx    # Author/seller widget list with follow functionality
-├── tsconfig.json          # TypeScript base configuration
-├── vite.config.ts         # Vite bundler, CSS plugin, and React Compiler configuration
+| Technology | Purpose |
+| :--- | :--- |
+| **React 19** | Core UI library & component state management |
+| **TypeScript 6** | Strict type safety and autocompletion |
+| **Vite 8** | Next-generation frontend build tooling & dev server |
+| **Tailwind CSS v4** | Modern utility-first styling system |
+| **GSAP 3** | High-performance smooth animations & timelines |
+| **Lucide React** | Sleek icon set |
+| **React Router v7** | Single-page application routing |
+| **Axios** | Asynchronous HTTP data fetching from DummyJSON API |
+
+---
+
+## 📁 Directory Structure
+
+```text
+Ecommerce-App/
+├── index.html              # HTML5 Entry Point
+├── package.json            # Dependencies & Scripts
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite configuration
+└── src/
+    ├── main.tsx            # Application entry mounting
+    ├── App.tsx             # Root Layout & Router setup
+    ├── index.css           # Custom CSS layer & scrollbar styling
+    └── components/
+        ├── BookCard.tsx       # Animated Product Card component
+        ├── FilterContext.tsx  # Global Filter State Context
+        ├── Header.tsx         # Sticky Header Navigation Bar
+        ├── HeroBanner.tsx     # Animated Promotional Hero Section
+        ├── MainContent.tsx    # Catalog Grid & Sorting Toolbar
+        ├── PopularBlogs.tsx   # Sidebar Blog Stories Widget
+        ├── ProductPage.tsx    # Detailed Product View & Gallery
+        ├── Sidebar.tsx        # Desktop & Mobile Filter Drawer
+        └── TopSellers.tsx     # Verified Merchants Widget
 ```
 
 ---
 
-## 🏁 Getting Started
+## 🚦 Getting Started
 
 ### Prerequisites
 
-Ensure you have **Node.js** (v18+ recommended) and **npm** installed on your system.
+Ensure you have **Node.js** (v18+) and **npm** installed.
+
+```bash
+node -v
+npm -v
+```
 
 ### Installation
 
-1. Clone the repository and navigate into the root directory:
+1. **Clone the repository:**
    ```bash
-   cd Ecommerce-App
+   git clone https://github.com/DonRaks/Advance_ecommerce_filteration_system.git
+   cd Advance_ecommerce_filteration_system
    ```
-2. Install the project dependencies:
+
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-### Running Locally
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173` in your browser.
 
-To launch the project in development mode with hot-reloading:
-```bash
-npm run dev
-```
-Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
+4. **Build for Production:**
+   ```bash
+   npm run build
+   ```
 
-### Building for Production
-
-To compile TypeScript and bundle the application into optimization-ready static assets:
-```bash
-npm run build
-```
-To run a local server to preview the production build output:
-```bash
-npm run preview
-```
+5. **Preview Production Build:**
+   ```bash
+   npm run preview
+   ```
 
 ---
 
-## 🧩 Architecture & State Management
+## 🤝 Contributing
 
-The application implements a **unidirectional data flow** centered around the **FilterContext**:
+Contributions are welcome! Follow these steps to submit changes:
 
-```mermaid
-graph TD
-    FC[FilterContext Provider] -->|Context State| SB[Sidebar Component]
-    FC -->|Context State| MC[MainContent Component]
-    SB -->|Mutates State: searchQuery, category, price, keywords| FC
-    MC -->|Reads State & Fetches API| API[dummyjson.com API]
-    API -->|Delivers Products| MC
-    MC -->|Renders cards| BC[BookCard Components]
-```
-
-1. **State Injection**: The context stores the query states (`searchQuery`, `selectedCategory`, `minPrice`, `maxPrice`, `keyword`).
-2. **State Mutation**: The `Sidebar` component acts as the control panel, triggering updates to the context properties when inputs change.
-3. **Data Fetching & Pipeline**: The `MainContent` component subscribes to the context. Whenever changes occur (specifically pagination or keywords), it makes HTTP calls to get updated datasets, filters them client-side based on price boundaries/search texts, sorts them according to the current selection, and renders them.
+1. Fork the Project.
+2. Create a Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'feat: Add some AmazingFeature'`).
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
 ---
 
-## 📄 Component Documentation
+## 📄 License
 
-### `FilterContext.tsx`
-Provides context values (`FilterContextType`) and a custom React hook `useFilter()` to simplify read/write operations from child components.
-
-### `Sidebar.tsx`
-A 64-width panel containing search boxes, price range fields, category radio groups (dynamically derived from category lists), static keyword filters, and a clear button.
-
-### `MainContent.tsx`
-Handles product list retrieval, server-side dynamic loading logic, frontend sorting algorithms, pagination range creation, and product grid renders.
-
-### `BookCard.tsx`
-A presentational card component utilizing `<Link>` from `react-router-dom` to route the user to `/product/:id` while rendering the product thumbnail image, title, and price.
-
-### `ProductPage.tsx`
-An individual route display component. It extracts the `:id` parameter from the URL path, sends an Axios request to fetch details from `/products/:id`, and renders standard details (rating, price, descriptions) with a back-button helper.
-
-### `TopSellers.tsx`
-An elegant side panel that utilizes the Random User API. Users can follow/unfollow individual sellers; the component updates its button UI dynamically based on local array index mapping.
-
----
-
-## 🚀 Roadmap & Enhancements
-
-- [ ] **Dynamic Detail Routing**: Fully map the `<Route path="/product/:id" element={<ProductPage />} />` route in `App.tsx`.
-- [ ] **Widget Integration**: Integrate `TopSellers.tsx` and `PopularBlogs.tsx` as floating panels or side elements next to the product grid on wider screens.
-- [ ] **Debounced Search**: Add search input debouncing to prevent excessive API requests or client-side filter computations on keystrokes.
-- [ ] **State Persistence**: Store filter parameters in session storage or URL query parameters to allow sharing filtered page links.
+Distributed under the MIT License. See `LICENSE` for more information.
